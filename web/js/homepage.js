@@ -121,7 +121,7 @@ var HomePage = (function() {
 				},
 				error: function(e) {
 					that.showErrorMessage(e);
-					console.log("Couldn't create game!");
+					that.showErrorMessage("Couldn't create game!");
 				}
 			});
 		}
@@ -145,7 +145,7 @@ var HomePage = (function() {
 				that.joinGameHandle(e, joinGameData);
 			},
 			error: function(e) {
-				that.showErrorMessage(e);
+				that.showErrorMessage("Error joining game!");
 
 			}
 		});
