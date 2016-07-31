@@ -1,0 +1,71 @@
+.site-header{
+    width:100%;
+    height: 250px;
+}
+div[data-page] {
+    display: none;
+}
+
+.site-header-img{
+    height: 200px;
+    background-image: url("../assets/monopoly-logo.jpg");
+    background-repeat: no-repeat;
+    background-size:  60% 200px;
+    background-position: center;
+}
+
+.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+}
+
+.navbar-collapse {
+    text-align: center;
+}
+
+.create-game{
+    margin-top: 50px;
+}
+.create-form{
+    height:400px;
+}
+
+.join-game{
+    margin-top: 50px;
+}
+.join-form{
+    height:400px;
+}
+#waitingList{
+    float: none;
+    margin:0 auto;
+}
+
+#waitingGames{
+    margin-top:10px;
+}
+.button-bar{
+    float: right;
+}
+
+.panel-default{
+    text-align: center;
+}
+
+.error-message-create-game{
+    width: 300px;
+    height: 30px;
+    display: none;
+    font-weight: bold;
+    font-size:20px;
+    color: red;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.waiting-signal {
+    float: right !important;
+}
+
+

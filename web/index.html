@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/waiting.css">
+    <link rel="stylesheet" href="styles/board.css">
+    <title>Monopoly Web Client</title>
+</head>
+<body>
+<div data-page="homepage">
+    <div class="site-header">
+        <div class="site-header-img"></div>
+        <div class="collapse navbar-collapse">
+            <nav class="navbar navbar-default site-navbar">
+                <ul class="nav navbar-nav">
+                    <li id="createGameNav" class="active" onclick="HomePage.showCreateGame()"><a>Create New Game</a>
+                    </li>
+                    <li id="joinGameNav" onclick="HomePage.showJoinGame()"><a>Join Game</a></li>
+                    <li id="waitingGameNav" onclick="HomePage.showWaitingGame()"><a>Waiting Games</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container create-game">
+        <div class="col-md-6 col-md-offset-3 create-form">
+            <div id='createGameForm'>
+                <div class="form-group">
+                    <label for="gameName">Game name</label>
+                    <input type="text" class="form-control" id="gameName" placeholder="Game Name" required
+                           autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label for="HumanPlayers">How many human players?</label>
+                    <input type="number" class="form-control" id="HumanPlayers" placeholder="Human Players" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="PcPlayers">How many PC players?</label>
+                    <input type="number" class="form-control" id="PcPlayers" placeholder="PC Players" required>
+                </div>
+
+                <div class="button-bar">
+                    <!--button type="reset" class="btn btn-default">Reset Fields</button-->
+                    <button class="btn btn-default" onclick="HomePage.onCreateGame()">Create Game</button>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container join-game">
+        <div class="col-md-6 col-md-offset-3 join-form">
+            <div>
+                <div class="form-group">
+                    <label for="gameselect">Join a waiting game</label>
+                    <div>
+
+                        <select name="select-game" class="form-control" id="gameSelect">
+
+                        </select>
+                        <span id="noGamesAvailable">There is no games at this moment, create a game!</span>
+
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <label for="playerName">Player name</label>
+                    <input type="text" class="form-control" id="playerName" placeholder="Player Name" required>
+                </div>
+                <div class="button-bar">
+                    <button type="reset" class="btn btn-default">Reset Fields</button>
+                    <button type="submit" class="btn btn-default" onclick="HomePage.onJoinGame()">Join Game</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="waitingGames">
+        <div class="col-md-8" id="waitingList">
+            <ul class="list-group">
+            </ul>
+        </div>
+
+    </div>
+
+
+    <div class="error-message-create-game">
+        <span class="error-message-value"></span>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">Shilo Mangam & Eden Swissa</div>
+    </div>
+</div>
+<div data-page="waiting-page">
+    <div class="container container-fluid waiting-wrapper">
+        <div class="waiting-container">
+            <span class="waiting-label">Wait for the game to be filled</span>
+            <div class="waiting-img">
+                <img src="assets/gears.svg" alt="">
+            </div>
+
+        </div>
+    </div>
+</div>
+<div data-page="monopoly-page">
+    <div class="players-bar">
+
+    </div>
+    <div class="board-container container-fluid">
+        <table id="board">
+
+            <tr>
+                <td class="cell board-corner" id="cell18"></td>
+                <td class="cell board-top" id="cell19">
+                </td>
+                <td class="cell board-top" id="cell20">
+
+                </td>
+                <td class="cell board-top" id="cell21">
+
+                </td>
+                <td class="cell board-top" id="cell22">
+                </td>
+                <td class="cell board-top" id="cell23">
+
+                </td>
+                <td class="cell board-top" id="cell24">
+
+                </td>
+                <td class="cell board-top" id="cell25">
+
+                </td>
+                <td class="cell board-top" id="cell26">
+
+                </td>
+                <td class="cell board-corner" id="cell27"></td>
+            </tr>
+            <tr>
+                <td class="cell board-left" id="cell17">
+                </td>
+                <td colspan="8" class="board-center"></td>
+                <td class="cell board-right" id="cell28">
+
+                </td>
+            </tr>
+            <tr>
+                <td class="cell board-left" id="cell16">
+
+
+                </td>
+                <td colspan="8" class="board-center"></td>
+                <td class="cell board-right" id="cell29"></td>
+            </tr>
+            <tr>
+                <td class="cell board-left" id="cell15"></td>
+                <td colspan="8" id="msgBar" class="board-center"></td>
+                <td class="cell board-right" id="cell30"></td>
+            </tr>
+            <tr>
+                <td class="cell board-left" id="cell14"></td>
+                <td colspan="8" class="board-center"></td>
+                <td class="cell board-right" id="cell31"></td>
+            </tr>
+            <tr>
+                <td class="cell board-left" id="cell13"></td>
+                <td colspan="8" class="board-center"></td>
+                <td class="cell board-right" id="cell32"></td>
+            </tr>
+            <tr>
+                <td class="cell board-left" id="cell12"></td>
+                <td colspan="8" class="board-center"></td>
+                <td class="cell board-right" id="cell33"></td>
+            </tr>
+            <tr>
+                <td class="cell board-left" id="cell11">
+                </td>
+                <td colspan="8" class="board-center">
+                </td>
+                <td class="cell board-right" id="cell34">
+
+                </td>
+            </tr>
+            <tr>
+                <td class="cell board-left" id="cell10"></td>
+                <td colspan="8" class="board-center">
+                </td>
+                <td class="cell board-right" id="cell35">
+                </td>
+            </tr>
+            <tr>
+                <td class="cell board-corner" id="cell9"></td>
+                <td class="cell board-bottom" id="cell8">
+
+                </td>
+                <td class="cell board-bottom" id="cell7"></td>
+                <td class="cell board-bottom" id="cell6">
+                </td>
+                <td class="cell board-bottom" id="cell5"></td>
+                <td class="cell board-bottom" id="cell4">
+
+                </td>
+                <td class="cell board-bottom" id="cell3">
+                </td>
+                <td class="cell board-bottom" id="cell2"></td>
+                <td class="cell board-bottom" id="cell1"></td>
+                <td class="cell board-corner" id="cell0"></td>
+            </tr>
+
+        </table>
+        <div class="main-container">
+            <div class="dice-wrap">
+                <img src="assets/dice/dice-1.png" alt="" class="left-dice">
+                <img src="assets/dice/dice-1.png" alt="" class="right-dice">
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="//code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+<script src="js/homepage.js"></script>
+<script src="js/player.js"></script>
+<script src="js/waiting.js"></script>
+<script src="js/boardUtils.js"></script>
+<script src="js/board.js"></script>
+<script src="js/gameHandler.js"></script>
+<script>
+    var currentPageName = null;
+    $(function() {
+        locationHashChanged();
+    })
+
+    function navigatePage(page) {
+        window.location.hash = page;
+    }
+    function locationHashChanged() {
+        var pagename = location.hash.substring(1);
+        if (pagename === "") {
+            pagename = "homepage";
+        }
+        if(currentPageName) {
+            $("div[data-page = '" + currentPageName + "']").hide(10);
+        }
+        $("div[data-page = '" + pagename + "']").show(200);
+        currentPageName =pagename;
+    }
+
+
+
+    window.onhashchange = locationHashChanged;
+</script>
+</html>

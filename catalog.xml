@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/monopolyapi/MonopolyWebServiceService?wsdl" uri="src/conf/xml-resources/web-service-references/MonopolyWebServiceService/wsdl/localhost_8080/monopolyapi/MonopolyWebServiceService.wsdl"/>
+    <system systemId="http://localhost:8080/monopolyapi/MonopolyWebServiceService?xsd=1" uri="src/conf/xml-resources/web-service-references/MonopolyWebServiceService/wsdl/localhost_8080/monopolyapi/MonopolyWebServiceService.xsd_1.xsd"/>
+    <system systemId="file:/Users/i327364/Dev/projects/MonopolyWebClient/src/java/com/monopoly/resources/monopoly_config.xsd" uri="src/conf/xml-resources/jaxb/MonopolyScheme/monopoly_config.xsd"/>
+</catalog>
